@@ -32,11 +32,37 @@ export const useDimension = () => {
             setH(window.innerHeight)
         }
         return () => {
-            
+
         }
     })
     return {
         w, 
         h
+    }
+}
+
+export const useStyle = (w, h, scale) => {
+    const sf = Math.sin(scale * Math.PI)
+    const size = Math.min(w, h) / 10
+    const position = 'absolute'
+    const left = `0px`
+    const top = `${h -size}px`
+    const hBottom = `${Math.floor(100 * sf)}%`
+    const clipPath = `polygon(0% 0%, 100% 0%, 100% ${hBottom}, 0% ${hBottom})`
+    const width = `${w}px`
+    const height = `${size}px`
+    const background = 'teal'
+    const color = 'white'
+    const fontSize = `${size / 6}px`
+    return {
+        position,
+        left, 
+        top, 
+        width,
+        height, 
+        background, 
+        color, 
+        fontSize,
+        clipPath
     }
 }
