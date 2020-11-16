@@ -7,7 +7,8 @@ export const useAnimatedScale = (scGap = 0.02, delay = 20) => {
     const [scale, setScale] = useState(0)
     const [animated, setAnimated] = useState(false)
     return {
-        if (!animated) {
+        start() {
+          if (!animated) {
             setAnimated(true)
             let currScale = scale 
             const interval = setInterval(() => {
@@ -19,7 +20,9 @@ export const useAnimatedScale = (scGap = 0.02, delay = 20) => {
                     clearInterval(interval)
                 }
             }, delay)
-        }
+          }
+        },
+        scale
     }
 }
 
@@ -53,7 +56,7 @@ export const useStyle = (w, h, scale) => {
     const height = `${size}px`
     const background = 'teal'
     const color = 'white'
-    const fontSize = `${size / 6}px`
+    const textSize = `${size / 6}px`
     return {
         position,
         left, 
@@ -62,7 +65,7 @@ export const useStyle = (w, h, scale) => {
         height, 
         background, 
         color, 
-        fontSize,
+        textSize,
         clipPath
     }
 }
