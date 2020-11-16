@@ -47,7 +47,7 @@ export const useStyle = (w, h, scale) => {
     const position = 'absolute'
     const left = `0px`
     const top = `${h -size}px`
-    const hBottom = `${Math.floor(100 * sf)}%`
+    const hBottom = `${Math.floor(100 * (1 - sf))}%`
     const clipPath = `polygon(0% 0%, 100% 0%, 100% ${hBottom}, 0% ${hBottom})`
     const width = `${w}px`
     const height = `${size}px`
